@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { setFilteredProducts, setProducts } from "./store/fashionStore.slice";
 import { useRef } from "react";
+import { SCREEN_SIZES } from "./constants/constants";
 function App() {
   const dispatch = useDispatch();
   const { data, isLoading, isError, error } = useProducts({endpoint:"https://closet-recruiting-api.azurewebsites.net/api/data"});
@@ -14,15 +15,16 @@ function App() {
   const filterContainerRef = useRef<HTMLDivElement>(null); 
   const contentListContainerRef = useRef<HTMLDivElement>(null); 
   const [columnCount, setColumnCount] = useState(1);
+  useEffect(()=>{
+    setColumnCount(window.innerWidth < SCREEN_SIZES.MOBILE ? 1 :( window.innerWidth < SCREEN_SIZES.TABLET ? 2 : (window.innerWidth < SCREEN_SIZES.DESKTOP ? 3 : 4)));
+  },[])
   useEffect(() => {
     if(data){
       dispatch(setProducts(data));
       dispatch(setFilteredProducts(data));
     }
   }, [data]);
-  useEffect(()=>{
-    setColumnCount(window.innerWidth < 480 ? 1 :( window.innerWidth < 768 ? 2 : (window.innerWidth < 1200 ? 3 : 4)));
-  },[window.innerWidth])
+
   return (
     <div className="container">
       <div className="header-container" ref={headerContainerRef}>

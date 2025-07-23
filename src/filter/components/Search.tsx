@@ -24,11 +24,11 @@ function Search() {
     return () => {
       subscription.unsubscribe();
     };
-  },[searchInputRef.current]);
+  },[searchInputRef]);
 
   return (
     <div className='search'>
-        <input ref={searchInputRef} className='search-input' type="text" placeholder="Find the item you're looking for" />
+        <input ref={searchInputRef} className='search__input' type="text" placeholder="Find the item you're looking for" />
         <FontAwesomeIcon color='#fff' size='lg' icon={faSearch} />
     </div>
   )
