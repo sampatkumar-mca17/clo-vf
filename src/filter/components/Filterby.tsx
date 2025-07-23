@@ -9,24 +9,24 @@ function Filterby() {
         <div className="filterby">
            
             <div className="pricing-options">
-                <div className="pricing-options-text">
+                <div className="pricing-options__text">
                     <span>Pricing Options</span>
                 </div>
-                <div className="pricing-options-paid">
+                <div className="pricing-options__paid">
                     <input 
                     checked={filterOptions.paid} 
                     onChange={(e)=>dispatch(setFilterOptions({...filterOptions,paid:e.target.checked}))} 
                     type="checkbox" />
                     <span>Paid</span>
                 </div>
-                <div className="pricing-options-free">
+                <div className="pricing-options__free">
                     <input 
                     checked={filterOptions.free} 
                     onChange={(e)=>dispatch(setFilterOptions({...filterOptions,free:e.target.checked}))} 
                     type="checkbox" />
                     <span>Free</span>
                 </div>
-                <div className="pricing-options-view-only">
+                <div className="pricing-options__view-only">
                     <input 
                     checked={filterOptions.viewOnly} 
                     onChange={(e)=>dispatch(setFilterOptions({...filterOptions,viewOnly:e.target.checked}))} type="checkbox" />

@@ -9,14 +9,14 @@
     & .pricing-options{
         display: flex;
         gap:1rem;
-        & .pricing-options-paid,
-        & .pricing-options-free,
-        & .pricing-options-view-only{
+        & .pricing-options__paid,
+        & .pricing-options__free,
+        & .pricing-options__view-only{
             display: flex;
             gap:0.5rem;
             align-items: center;
         }
-        & .pricing-options-text{
+        & .pricing-options__text{
             font-size:16px;
             font-family: 'Colfax-Medium', sans-serif;
         }
