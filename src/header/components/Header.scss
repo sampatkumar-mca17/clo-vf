@@ -1,0 +1,13 @@
+
+.header{
+    padding: 1rem;
+    width: 100%;
+    margin:0;
+
+    & .title{
+        display: inline-block;
+        width: 80px;
+        height: 16px;
+        background: url('https://storagefiles.clo-set.com/public/connect/common/connect-desktop-header-bi.svg') no-repeat;
+    }
+}

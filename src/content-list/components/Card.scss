@@ -1,0 +1,36 @@
+@import "../../variables.scss";
+.card{
+    display: flex;
+    flex-direction: column; 
+    gap: 1rem;
+    color:$text-color;
+
+    & .card-image{
+        position: relative;
+        height: 350px ;
+        img{
+            height: 100%;
+            width: 100%;
+            inset: 0px;
+            color: transparent;
+        }
+    }
+    & .card-content{
+        display: flex;
+        justify-content: space-between;
+        & .card-title-and-description{
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            & .card-title{
+                font-size:16px;
+                font-family: 'Colfax-Medium', sans-serif;
+            }
+            & .card-description{
+                font-size:16px;
+                font-family: 'Colfax-Regular', sans-serif;
+            }
+        }
+    }
+    
+}

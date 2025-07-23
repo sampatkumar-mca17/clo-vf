@@ -1,0 +1,30 @@
+@import "./variables.scss";
+.container{
+  width:100%;
+  overflow-x: hidden;
+  height:100dvh;
+  overflow-y: hidden;
+  & .header-container{
+    background-color: #0f0f0f;
+    height:50.5px;
+  }
+  & .content-container{
+    display: flex;
+    flex-direction: column;
+    gap:2rem;
+    height:calc(100vh - 80px);
+    background-color: #212020;
+    padding:1rem;
+    overflow:hidden;
+    & .content-list-container{
+      overflow-y: auto;
+    }
+  }
+}
+.loading{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  color:$text-color;
+}

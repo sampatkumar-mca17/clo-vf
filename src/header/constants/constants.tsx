@@ -1,0 +1,1 @@
+export const headerTitleImage:string = "src/header/components/Header.tsx"

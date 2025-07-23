@@ -1,0 +1,36 @@
+@import "../../variables.scss";
+.filterby{
+    display: flex;
+    gap:1rem;
+    color:$text-color;
+    padding: 1rem;
+    border: 1px solid $border-color-primary;
+    justify-content: space-between;
+    & .pricing-options{
+        display: flex;
+        gap:1rem;
+        & .pricing-options-paid,
+        & .pricing-options-free,
+        & .pricing-options-view-only{
+            display: flex;
+            gap:0.5rem;
+            align-items: center;
+        }
+        & .pricing-options-text{
+            font-size:16px;
+            font-family: 'Colfax-Medium', sans-serif;
+        }
+    }
+   & .reset-option{
+    color:#fff;
+    cursor: pointer;
+    font-size:16px;
+    
+   }
+}
+
+@media screen and (max-width: 480px) {
+    .filterby{
+        flex-direction: column;
+    }
+}
