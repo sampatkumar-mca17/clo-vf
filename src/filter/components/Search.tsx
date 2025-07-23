@@ -11,7 +11,7 @@ function Search() {
   let subscription: Subscription;
 
   useEffect(()=>{
-    if(searchInputRef.current && !subscription){
+    if(searchInputRef.current && (!subscription || subscription?.closed)){
       subscription = fromEvent(searchInputRef.current as HTMLInputElement,'input')
       .pipe(
         debounceTime(500),
@@ -24,7 +24,7 @@ function Search() {
     return () => {
       subscription.unsubscribe();
     };
-  },[searchInputRef]);
+  },[]);
 
   return (
     <div className='search'>

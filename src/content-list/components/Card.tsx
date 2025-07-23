@@ -1,5 +1,5 @@
 import "./Card.scss";
-function Card({title, description, priceOption, image, style}: {title: string, description: string, priceOption: string, image: string, style?: React.CSSProperties}) {
+function Card({title, description, priceOption, image, style}: {title: string, description: string, priceOption: string | number, image: string, style?: React.CSSProperties}) {
     return (
         <div className="card" style={style}>
             <div className="card-image">
