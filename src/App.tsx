@@ -1,3 +1,4 @@
+import React from 'react';
 import Header from "./header/components/Header";
 import "./App.scss";
 import Filter from "./filter/Filter";
@@ -5,7 +6,7 @@ import ContentList from "./content-list/ContentList";
 import useProducts from "./custom-hooks/useProducts";
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-import { setFilteredProducts, setProducts } from "./store/fashionStore.slice";
+import {  setProducts } from "./store/fashionStore.slice";
 import { useRef } from "react";
 import { SCREEN_SIZES } from "./constants/constants";
 function App() {
@@ -21,22 +22,21 @@ function App() {
   useEffect(() => {
     if(data){
       dispatch(setProducts(data));
-      dispatch(setFilteredProducts(data));
     }
   }, [data]);
 
   return (
     <div className="container">
-      <div className="header-container" ref={headerContainerRef}>
+      <div data-testid="header-container" className="header-container" ref={headerContainerRef}>
         <Header/>
       </div>
-      <div className="content-container">
-        <div className="filter-container" ref={filterContainerRef}>
+      <div data-testid="content-container" className="content-container">
+        <div data-testid="filter-container" className="filter-container" ref={filterContainerRef}>
           <Filter/>
         </div>
-        <div className="content-list-container" ref={contentListContainerRef}>
-          {isLoading && <div className="loading">Loading...</div>}
-          {isError && <div className="loading">Error: {error?.message}</div>}
+        <div data-testid="content-list-container" className="content-list-container" ref={contentListContainerRef}>
+          {isLoading && <div data-testid="loading" className="loading">Loading...</div>}
+          {isError && <div data-testid="error" className="loading">Error: {error?.message}</div>}
           {!isLoading && !isError && <ContentList height={window.innerHeight - (headerContainerRef.current?.offsetHeight || 0) - (filterContainerRef.current?.offsetHeight || 0)} width={contentListContainerRef.current?.offsetWidth || 0} columnCount={columnCount}/>}
         </div>     
       </div>

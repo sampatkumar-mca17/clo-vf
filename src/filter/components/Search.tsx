@@ -1,3 +1,4 @@
+import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {faSearch} from '@fortawesome/free-solid-svg-icons/faSearch'
 import './Search.scss'
@@ -29,7 +30,7 @@ function Search() {
   return (
     <div className='search'>
         <input ref={searchInputRef} className='search__input' type="text" placeholder="Find the item you're looking for" />
-        <FontAwesomeIcon color='#fff' size='lg' icon={faSearch} />
+        <FontAwesomeIcon data-testid='search-icon' color='#fff' size='lg' icon={faSearch} />
     </div>
   )
 }

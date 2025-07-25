@@ -20,6 +20,21 @@
             font-size:16px;
             font-family: 'Colfax-Medium', sans-serif;
         }
+        & .pricing-options__price-slider{
+            display: flex;
+            gap:0.5rem;
+            align-items: center;
+            &.disabled{
+                opacity: 0.5;
+                cursor: not-allowed;
+            }
+            & .pricing-options__price-slider__input{
+                &.disabled{
+                    opacity: 0.5;
+                    cursor: not-allowed;
+                }
+            }
+        }
     }
    & .reset-option{
     color:#fff;

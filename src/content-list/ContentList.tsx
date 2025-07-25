@@ -1,3 +1,4 @@
+import React from "react";
 import type { Product } from "../model/model";
 import "./ContentList.scss"
 import { useSelector } from "react-redux";
@@ -7,11 +8,11 @@ function ContentList({height, width, columnCount}: {height: number, width: numbe
     return (
         <>
             {
-                products.length > 0 && <CardVirtualizer 
+                products.length > 0 && <CardVirtualizer
                 products={products} 
                 height={height - 70} 
                 width={width} 
-                rowCount={products.length/columnCount} 
+                rowCount={products.length/(products.length >= columnCount ? columnCount : products.length)} 
                 columnCount={products.length >= columnCount ? columnCount : products.length} 
                 rowHeight={392.5} 
                 columnWidth={(width/columnCount)-10}/>

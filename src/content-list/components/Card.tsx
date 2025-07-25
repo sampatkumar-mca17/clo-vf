@@ -1,21 +1,22 @@
+import React from "react";
 import "./Card.scss";
 function Card({title, description, priceOption, image, style}: {title: string, description: string, priceOption: string | number, image: string, style?: React.CSSProperties}) {
     return (
-        <div className="card" style={style}>
+        <div data-testid="card" className="card" style={style}>
             <div className="card-image">
-                <img src={image} alt="card-image" />
+                <img data-testid="card-image" src={image} alt="card-image" />
             </div>
             <div className="card-content">  
                 <div className="card-title-and-description">
-                    <div className="card-title">
-                        <span>{title}</span>
+                    <div className="card-title" data-testid="card-title">
+                        <span data-testid="card-title-text">{title}</span>
                     </div>
                     <div className="card-description">
-                        <span>{description}</span>
+                        <span data-testid="card-description">{description}</span>
                     </div>
                 </div>
                 <div className="card-price">
-                    <span>{priceOption}</span>
+                    <span data-testid="card-price">{priceOption}</span>
                 </div>
             </div>
         </div>

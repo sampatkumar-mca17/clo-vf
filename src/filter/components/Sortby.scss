@@ -1,0 +1,21 @@
+@import "../../variables.scss";
+.sort{
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    float: right;
+    color: #fff;
+    & .sort__select{
+        background: none;
+        border: none;
+        border-bottom: 1px solid #E7E7E8;
+        color:#E7E7E8; 
+        font-size:20px; 
+        height: 50px;
+        &::placeholder{
+            color:$text-color;
+            font-size:15px;
+            font-weight:bold;
+        }
+    }
+}

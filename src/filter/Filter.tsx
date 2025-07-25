@@ -1,5 +1,8 @@
+
+import React from 'react';
 import Search from './components/Search'
 import Filterby from './components/Filterby'
+import Sortby from './components/Sortby'
 import './Filtes.scss'
 function Filter() {
     return (
@@ -9,6 +12,9 @@ function Filter() {
           </div>
           <div className='filterby-container'>
             <Filterby/>
+          </div>
+          <div className='sortby-container'>
+            <Sortby/>
           </div>
         </div>
     )

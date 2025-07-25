@@ -14,11 +14,13 @@ export interface State{
 export interface FashionState{
     products:Product[];
     filteredProducts:Product[];
-    filterOptions:FilterOptions
+    filterOptions:FilterOptions,
+    sortValue:"relavance"|"higherPrice"|"lowerPrice",
 }
 export interface FilterOptions{
     free:boolean,
     paid:boolean,
     viewOnly:boolean,
+    priceRange:number,
 }
     
