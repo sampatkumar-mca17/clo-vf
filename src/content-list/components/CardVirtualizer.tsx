@@ -6,7 +6,6 @@ import { PRICING_OPTIONS } from '../../constants/constants';
 import "./CardVirtualizer.scss"
 function CardVirtualizer({products, height, width, rowCount, columnCount, rowHeight, columnWidth}: {products: Product[], height: number, width: number, rowCount: number, columnCount: number, rowHeight: number, columnWidth: number}) {
     const Row = ({ columnIndex, rowIndex, style,data }: {columnIndex: number; rowIndex: number; style: React.CSSProperties; data: any}) => {
-      console.log(rowIndex, columnCount, rowCount);
       const item:Product = data[(rowIndex*columnCount)+columnIndex];
       if(item){
         return (
