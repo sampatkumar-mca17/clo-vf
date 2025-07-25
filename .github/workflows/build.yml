@@ -5,7 +5,7 @@ on:
     branches:
       - main
     paths:
-      - 'src/**'
+      - './**'
 defaults:
   run:
     working-directory: .
