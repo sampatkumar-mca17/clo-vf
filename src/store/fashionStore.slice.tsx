@@ -25,9 +25,10 @@ export const fashionSlice = createSlice({
             state.filteredProducts = sortProductsMemo(state.sortValue as "relavance"|"higherPrice"|"lowerPrice", action.payload);
         },
         setFilterOptions: (state, action: PayloadAction<FilterOptions>) => {
+            state.filterOptions = action.payload;
             state.filteredProducts = searchProductsMemo(action.payload, state.searchValue, state.products, state.filterOptions.priceRange, state.sortValue as "relavance"|"higherPrice"|"lowerPrice");
             state.filteredProducts = sortProductsMemo(state.sortValue as "relavance"|"higherPrice"|"lowerPrice", state.filteredProducts);
-            state.filterOptions = action.payload;
+
         },
         setSearchValue: (state, action: PayloadAction<string>) => {
             state.filteredProducts = searchProductsMemo(state.filterOptions, action.payload, state.products, state.filterOptions.priceRange, state.sortValue as "relavance"|"higherPrice"|"lowerPrice");

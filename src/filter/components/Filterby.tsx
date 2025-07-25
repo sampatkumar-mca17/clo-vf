@@ -19,7 +19,7 @@ function Filterby() {
                     <input 
                     checked={filterOptions.paid} 
                     data-testid="paid-checkbox"
-                    onChange={(e)=>dispatch(setFilterOptions({...filterOptions,paid:e.target.checked}))} 
+                    onChange={(e)=>dispatch(setFilterOptions({...filterOptions,paid:e.target.checked,priceRange:0}))} 
                     type="checkbox" />
                     <span>Paid</span>
                 </div>
