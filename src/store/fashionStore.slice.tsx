@@ -31,9 +31,9 @@ export const fashionSlice = createSlice({
 
         },
         setSearchValue: (state, action: PayloadAction<string>) => {
+            state.searchValue = action.payload;
             state.filteredProducts = searchProductsMemo(state.filterOptions, action.payload, state.products, state.filterOptions.priceRange, state.sortValue as "relavance"|"higherPrice"|"lowerPrice");
             state.filteredProducts = sortProductsMemo(state.sortValue as "relavance"|"higherPrice"|"lowerPrice", state.filteredProducts);
-            state.searchValue = action.payload;
         },
         setSortValue: (state, action: PayloadAction<"relavance"|"higherPrice"|"lowerPrice">) => {
             state.sortValue = action.payload;

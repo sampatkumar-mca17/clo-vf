@@ -41,6 +41,7 @@ export const sortProducts = ():((sortValue: "relavance"|"higherPrice"|"lowerPric
 
 const searchProductsByPriceRange = (products: Product[], priceRange: number) => {
     const filteredProductsByPriceRange = products.filter((product: Product) => {
+        console.log(product)
         return product.price >= priceRange;
     });
     return filteredProductsByPriceRange;
