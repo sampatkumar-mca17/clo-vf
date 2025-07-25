@@ -3,6 +3,8 @@ import type { FilterOptions, Product } from '../model/model';
 import type { PayloadAction } from '@reduxjs/toolkit';
 import { searchProducts, sortProducts } from '../utils/utils';
 const products: Product[] = [];
+const searchProductsMemo = searchProducts()
+const sortProductsMemo = sortProducts()
 export const fashionSlice = createSlice({
     name: 'fashion',
     initialState: {
@@ -20,19 +22,21 @@ export const fashionSlice = createSlice({
     reducers: {
         setProducts: (state, action: PayloadAction<Product[]>) => {
             state.products = action.payload;
-            state.filteredProducts = sortProducts(state.sortValue as "relavance"|"higherPrice"|"lowerPrice", action.payload);
+            state.filteredProducts = sortProductsMemo(state.sortValue as "relavance"|"higherPrice"|"lowerPrice", action.payload);
         },
         setFilterOptions: (state, action: PayloadAction<FilterOptions>) => {
+            state.filteredProducts = searchProductsMemo(action.payload, state.searchValue, state.products, state.filterOptions.priceRange, state.sortValue as "relavance"|"higherPrice"|"lowerPrice");
+            state.filteredProducts = sortProductsMemo(state.sortValue as "relavance"|"higherPrice"|"lowerPrice", state.filteredProducts);
             state.filterOptions = action.payload;
-            state.filteredProducts = searchProducts(action.payload, state.searchValue, state.products, state.filterOptions.priceRange);
         },
         setSearchValue: (state, action: PayloadAction<string>) => {
+            state.filteredProducts = searchProductsMemo(state.filterOptions, action.payload, state.products, state.filterOptions.priceRange, state.sortValue as "relavance"|"higherPrice"|"lowerPrice");
+            state.filteredProducts = sortProductsMemo(state.sortValue as "relavance"|"higherPrice"|"lowerPrice", state.filteredProducts);
             state.searchValue = action.payload;
-            state.filteredProducts = searchProducts(state.filterOptions, action.payload, state.products, state.filterOptions.priceRange);
         },
         setSortValue: (state, action: PayloadAction<"relavance"|"higherPrice"|"lowerPrice">) => {
             state.sortValue = action.payload;
-            state.filteredProducts = sortProducts(action.payload, state.filteredProducts);
+            state.filteredProducts = sortProductsMemo(action.payload, state.filteredProducts);
         },
     },
 });
