@@ -18,6 +18,7 @@ export const fashionSlice = createSlice({
         },
         searchValue:"",
         sortValue:"relavance",
+        deviceType:"mobile",
     },
     reducers: {
         setProducts: (state, action: PayloadAction<Product[]>) => {
@@ -39,8 +40,11 @@ export const fashionSlice = createSlice({
             state.sortValue = action.payload;
             state.filteredProducts = sortProductsMemo(action.payload, state.filteredProducts);
         },
+        setDeviceType: (state, action: PayloadAction<"mobile"|"tablet"|"desktop">) => {
+            state.deviceType = action.payload;
+        }
     },
 });
 
-export const { setProducts, setFilterOptions,setSearchValue,setSortValue } = fashionSlice.actions;
+export const { setProducts, setFilterOptions,setSearchValue,setSortValue,setDeviceType } = fashionSlice.actions;
 export default fashionSlice.reducer;

@@ -16,6 +16,7 @@ export interface FashionState{
     filteredProducts:Product[];
     filterOptions:FilterOptions,
     sortValue:"relavance"|"higherPrice"|"lowerPrice",
+    deviceType:"mobile"|"tablet"|"desktop",
 }
 export interface FilterOptions{
     free:boolean,

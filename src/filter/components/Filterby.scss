@@ -6,46 +6,52 @@
     padding: 1rem;
     border: 1px solid $border-color-primary;
     justify-content: space-between;
-    & .pricing-options{
+    & .filter-reset-option{
         display: flex;
         gap:1rem;
-        & .pricing-options__paid,
-        & .pricing-options__free,
-        & .pricing-options__view-only{
-            display: flex;
-            gap:0.5rem;
-            align-items: center;
+        &.filter-reset-option--mobile{
+            flex-direction: column;
         }
-        & .pricing-options__text{
-            font-size:16px;
-            font-family: 'Colfax-Medium', sans-serif;
-        }
-        & .pricing-options__price-slider{
+        & .pricing-options{
             display: flex;
-            gap:0.5rem;
-            align-items: center;
-            &.disabled{
-                opacity: 0.5;
-                cursor: not-allowed;
+            gap:1rem;
+            &.pricing-options--mobile{
+                flex-direction: column;
+                gap:0;
             }
-            & .pricing-options__price-slider__input{
+            & .pricing-options__paid,
+            & .pricing-options__free,
+            & .pricing-options__view-only{
+                display: flex;
+                gap:0.5rem;
+                align-items: center;
+            }
+            & .pricing-options__text{
+                font-size:16px;
+                font-family: 'Colfax-Medium', sans-serif;
+            }
+            & .pricing-options__price-slider{
+                display: flex;
+                gap:0.5rem;
+                align-items: center;
                 &.disabled{
                     opacity: 0.5;
                     cursor: not-allowed;
                 }
+                & .pricing-options__price-slider__input{
+                    &.disabled{
+                        opacity: 0.5;
+                        cursor: not-allowed;
+                    }
+                }
             }
         }
+       & .reset-option{
+        color:#fff;
+        cursor: pointer;
+        font-size:16px;
+        
+       }
     }
-   & .reset-option{
-    color:#fff;
-    cursor: pointer;
-    font-size:16px;
-    
-   }
-}
 
-@media screen and (max-width: 480px) {
-    .filterby{
-        flex-direction: column;
-    }
 }

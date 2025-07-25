@@ -6,7 +6,7 @@ import ContentList from "./content-list/ContentList";
 import useProducts from "./custom-hooks/useProducts";
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-import {  setProducts } from "./store/fashionStore.slice";
+import {  setProducts,setDeviceType } from "./store/fashionStore.slice";
 import { useRef } from "react";
 import { SCREEN_SIZES } from "./constants/constants";
 function App() {
@@ -17,11 +17,17 @@ function App() {
   const contentListContainerRef = useRef<HTMLDivElement>(null); 
   const [columnCount, setColumnCount] = useState(1);
   useEffect(()=>{
-    setColumnCount(window.innerWidth < SCREEN_SIZES.MOBILE ? 1 :( window.innerWidth < SCREEN_SIZES.TABLET ? 2 : (window.innerWidth < SCREEN_SIZES.DESKTOP ? 3 : 4)));
+    setColumnCount(()=>{
+      const count = window.innerWidth <= SCREEN_SIZES.MOBILE ? 1 :( window.innerWidth <= SCREEN_SIZES.TABLET ? 2 : (window.innerWidth <= SCREEN_SIZES.DESKTOP ? 3 : 4));
+      dispatch(setDeviceType(count==1 ? "mobile" : (count==2 ? "tablet" : "desktop")));
+      return count;
+    });
+
   },[])
   useEffect(() => {
     if(data){
       dispatch(setProducts(data));
+
     }
   }, [data]);
 

@@ -6,7 +6,6 @@ export const searchProducts = ():((filterOptions: FilterOptions, searchText: str
     return (filterOptions: FilterOptions, searchText: string, products: Product[], priceRange: number, sortValue: "relavance"|"higherPrice"|"lowerPrice") =>{
         const key = JSON.stringify({filterOptions, searchText, products, priceRange, sortValue});
         if(memo.has(key)){
-            console.warn('Search from cache');
             return JSON.parse(memo.get(key)) as Product[];
         }
         const filteredProducts = filterAndSearch(products, filterOptions, searchText);
@@ -21,7 +20,6 @@ export const sortProducts = ():((sortValue: "relavance"|"higherPrice"|"lowerPric
     return (sortValue: "relavance"|"higherPrice"|"lowerPrice", products: Product[]):Product[] =>{
         const key = JSON.stringify({sortValue, products});
         if(memo.has(key)){
-            console.warn('Sort from cache');
             return JSON.parse(memo.get(key)) as Product[];
         }
         const productsCopy = [...products];

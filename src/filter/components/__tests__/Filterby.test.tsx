@@ -3,11 +3,11 @@ import { fireEvent, render, screen } from '@testing-library/react';
 import { Provider } from 'react-redux';
 import { store } from '../../../store/store'; // Verify this path is correct
 import Filterby from '../Filterby';
-import { setFilterOptions } from '../../../store/fashionStore.slice';
+import { setDeviceType, setFilterOptions } from '../../../store/fashionStore.slice';
 describe('Filterby Component', () => {
-    // beforeEach(() => {
-    //     screen.getByTestId('paid-checkbox')?.setAttribute('checked','false');
-    // });
+    beforeEach(() => {
+        store.dispatch(setDeviceType("desktop"));
+    });
     test('should render Filterby component', () => {
         render(
             <Provider store={store}>
