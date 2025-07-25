@@ -12,6 +12,10 @@
         &.filter-reset-option--mobile{
             flex-direction: column;
         }
+        &:not(.filter-reset-option--mobile){
+            justify-content: space-between;
+            width: 100%;
+        }
         & .pricing-options{
             display: flex;
             gap:1rem;
